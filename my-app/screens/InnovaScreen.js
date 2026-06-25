@@ -243,7 +243,7 @@ const markedDates = useMemo(() => {
                   onValueChange={(itemValue) => setSelectedYear(itemValue)}
                   style={styles.picker}
                 >
-                  {[2024, 2025, 2026, 2027, 2028].map((year) => (
+                  {[2026, 2027, 2028,2029,2030,2031,2032].map((year) => (
                     <Picker.Item key={year} label={String(year)} value={year} />
                   ))}
                 </Picker>
