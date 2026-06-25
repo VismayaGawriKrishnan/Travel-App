@@ -49,13 +49,13 @@ export default function HomeScreen({ navigation, route }) {
       } = await supabase.auth.getUser();
       if (user) {
         // Use display name if set, otherwise extract first part of email
-       const emailPrefix = user.email?.split("@")[0] || "";
-const name = emailPrefix.replace("travelapp", "");
+        const emailPrefix = user.email?.split("@")[0] || "";
+        const name = emailPrefix.replace("travelapp", "");
 
-setOwnerName(
-  name.charAt(0).toUpperCase() + name.slice(1)
-);
-        
+        setOwnerName(
+          name.charAt(0).toUpperCase() + name.slice(1)
+        );
+
       }
     };
     fetchOwner();
@@ -247,6 +247,7 @@ const styles = StyleSheet.create({
     color: "#D15C2D",
     fontSize: 13,
     fontWeight: "600",
+    fontFamily: "Serpentine-Bold",
   },
 
   logoCircleWrapper: {
