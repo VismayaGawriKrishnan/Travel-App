@@ -11,7 +11,6 @@ import {
 } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import { supabase } from "../lib/supabase";
 
@@ -34,10 +33,6 @@ const VEHICLES = [
 ];
 
 export default function HomeScreen({ navigation, route }) {
-  const [fontsLoaded, fontError] = useFonts({
-    "Serpentine-Bold": require("../assets/Serpentine-Bold.ttf"),
-  });
-
   const [ownerName, setOwnerName] = useState("OWNER");
   const [loggingOut, setLoggingOut] = useState(false);
 
@@ -77,19 +72,7 @@ export default function HomeScreen({ navigation, route }) {
     ]);
   };
 
-  React.useEffect(() => {
-    console.log("Fonts Loaded:", fontsLoaded);
-    console.log("Font Error:", fontError);
-  }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded && !fontError) {
-    return (
-      <View style={styles.loader}>
-        <ActivityIndicator size="large" color="#fff" />
-        <Text style={{ color: "#fff", marginTop: 10 }}>Loading Fonts...</Text>
-      </View>
-    );
-  }
 
   return (
     <LinearGradient
@@ -224,7 +207,6 @@ const styles = StyleSheet.create({
   greeting: {
     color: "#fff",
     fontSize: 32,
-    fontFamily: "Serpentine-Bold",
     fontWeight: "bold",
   },
 
@@ -247,7 +229,6 @@ const styles = StyleSheet.create({
     color: "#D15C2D",
     fontSize: 13,
     fontWeight: "600",
-    fontFamily: "Serpentine-Bold",
   },
 
   logoCircleWrapper: {
@@ -295,14 +276,12 @@ const styles = StyleSheet.create({
   vehicleTitleNum: {
     color: "#fff",
     fontSize: 36,
-    fontFamily: "Serpentine-Bold",
     fontWeight: "bold",
   },
 
   vehicleTitleText: {
     color: "#fff",
     fontSize: 28,
-    fontFamily: "Serpentine-Bold",
     fontWeight: "bold",
   },
 

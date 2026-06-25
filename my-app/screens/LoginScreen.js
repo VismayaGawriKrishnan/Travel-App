@@ -1,5 +1,4 @@
 import { Feather } from "@expo/vector-icons";
-import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -23,9 +22,7 @@ export default function LoginScreen({ navigation }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const [fontsLoaded] = useFonts({
-    "Serpentine-Bold": require("../assets/Serpentine-Bold.ttf"),
-  });
+
 
   // Animations
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -263,7 +260,6 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   welcomeText: {
-    fontFamily: "Serpentine-Bold",
     fontSize: 26,
     color: "#3D1A0A",
     marginBottom: 4,
@@ -323,7 +319,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   loginBtnText: {
-    fontFamily: "Serpentine-Bold",
     color: "#fff",
     fontSize: 18,
     letterSpacing: 2,
