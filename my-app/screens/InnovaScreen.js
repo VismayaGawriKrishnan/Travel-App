@@ -153,8 +153,7 @@ const markedDates = useMemo(() => {
           </View>
 
           <Calendar
-  key={currentDate}
-  current={currentDate}
+ current={currentDate}
   markingType={"simple"}
   markedDates={markedDates}
   enableSwipeMonths={false}
