@@ -212,12 +212,13 @@ if (error) {
             selectedValue={owner}
             onValueChange={(itemValue) => setOwner(itemValue)}
             dropdownIconColor="#D15C2D"
+            style={{ color: "#000000"}}
           >
-            <Picker.Item label="Select Owner" value="" />
-            <Picker.Item label="Owner 1" value="owner1" />
-            <Picker.Item label="Owner 2" value="owner2" />
-            <Picker.Item label="Owner 3" value="owner3" />
-            <Picker.Item label="Owner 4" value="owner4" />
+            <Picker.Item label="Select Owner" value="" color="#000000" />
+            <Picker.Item label="Owner 1" value="owner1" color="#000000" />
+            <Picker.Item label="Owner 2" value="owner2" color="#000000" />
+            <Picker.Item label="Owner 3" value="owner3" color="#000000" />
+            <Picker.Item label="Owner 4" value="owner4" color="#000000" />
           </Picker>
         </View>
 
@@ -428,6 +429,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
     marginTop: 20,
     marginHorizontal: 20,
+    color: "#000000",
   },
 
   input: {
@@ -438,6 +440,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 14,
     fontSize: 16,
+    color: "#000000",
   },
 
   inputBox: {
@@ -458,9 +461,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
 
-  countryCode: { fontSize: 16, marginRight: 10 },
+  countryCode: { fontSize: 16, marginRight: 10, color: "#000000" },
 
-  mobileInput: { flex: 1, fontSize: 16, paddingVertical: 14 },
+  mobileInput: { flex: 1, fontSize: 16, paddingVertical: 14, color: "#000000" },
 
   tripRow: {
     flexDirection: "row",
@@ -476,6 +479,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     paddingVertical: 14,
     width: "42%",
+    color: "#000000",
   },
 
   dateBox: {
@@ -526,5 +530,6 @@ const styles = StyleSheet.create({
     marginTop: -34,
     paddingBottom: 16,
     marginBottom: 24,
+    color: "#000000",
   },
 });

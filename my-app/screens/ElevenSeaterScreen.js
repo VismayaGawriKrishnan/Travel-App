@@ -230,7 +230,7 @@ const markedDates = useMemo(() => {
                   style={styles.picker}
                 >
                   {MONTHS.map((month, index) => (
-                    <Picker.Item key={index} label={month} value={index} />
+                    <Picker.Item key={index} label={month} value={index} color="#000000" />
                   ))}
                 </Picker>
               </View>
@@ -243,7 +243,7 @@ const markedDates = useMemo(() => {
                   style={styles.picker}
                 >
                   {[2026, 2027, 2028, 2029, 2030].map((year) => (
-                    <Picker.Item key={year} label={String(year)} value={year} />
+                    <Picker.Item key={year} label={String(year)} value={year} color="#000000"/>
                   ))}
                 </Picker>
               </View>

@@ -37,60 +37,60 @@ export default function InnovaScreen({ navigation }) {
   const [selectedMonth, setSelectedMonth] = useState(today.getMonth());
   const [selectedYear, setSelectedYear] = useState(today.getFullYear());
   const [showPicker, setShowPicker] = useState(false);
-const [bookings, setBookings] = useState([]);
+  const [bookings, setBookings] = useState([]);
   const currentDate = `${selectedYear}-${String(selectedMonth + 1).padStart(2, "0")}-01`;
   const minDateOfMonth = `${selectedYear}-${String(selectedMonth + 1).padStart(2, "0")}-01`;
   const maxDateOfMonth = `${selectedYear}-${String(selectedMonth + 1).padStart(2, "0")}-${new Date(selectedYear, selectedMonth + 1, 0).getDate()}`;
 
-const fetchBookings = useCallback(async () => {
-  const { data, error } = await supabase
-    .from("vehicle_bookings")
-    .select("*")
-    .eq("vehicle_type", "Innova")
-    .eq("booking_status", "Confirmed");
+  const fetchBookings = useCallback(async () => {
+    const { data, error } = await supabase
+      .from("vehicle_bookings")
+      .select("*")
+      .eq("vehicle_type", "Innova")
+      .eq("booking_status", "Confirmed");
 
-  if (!error) {
-    setBookings(data || []);
-  }
-}, []);
-
-useFocusEffect(
-  useCallback(() => {
-    fetchBookings();
-  }, [fetchBookings])
-);
-const markedDates = useMemo(() => {
-  const marks = {};
-
-  bookings.forEach((booking) => {
-    // Parse as UTC dates to avoid timezone off-by-one issues
-    const [startY, startM, startD] = booking.pickup_date.split("-").map(Number);
-    const [endY, endM, endD] = booking.return_date.split("-").map(Number);
-    const start = new Date(Date.UTC(startY, startM - 1, startD));
-    const end = new Date(Date.UTC(endY, endM - 1, endD));
-
-    for (
-      let d = new Date(start);
-      d <= end;
-      d.setUTCDate(d.getUTCDate() + 1)
-    ) {
-      const dateString =
-        d.getUTCFullYear() +
-        "-" +
-        String(d.getUTCMonth() + 1).padStart(2, "0") +
-        "-" +
-        String(d.getUTCDate()).padStart(2, "0");
-
-      marks[dateString] = {
-        selected: true,
-        selectedColor: "#B45A2B",
-        selectedTextColor: "#FFFFFF",
-      };
+    if (!error) {
+      setBookings(data || []);
     }
-  });
+  }, []);
 
-  return marks;
-}, [bookings]);
+  useFocusEffect(
+    useCallback(() => {
+      fetchBookings();
+    }, [fetchBookings])
+  );
+  const markedDates = useMemo(() => {
+    const marks = {};
+
+    bookings.forEach((booking) => {
+      // Parse as UTC dates to avoid timezone off-by-one issues
+      const [startY, startM, startD] = booking.pickup_date.split("-").map(Number);
+      const [endY, endM, endD] = booking.return_date.split("-").map(Number);
+      const start = new Date(Date.UTC(startY, startM - 1, startD));
+      const end = new Date(Date.UTC(endY, endM - 1, endD));
+
+      for (
+        let d = new Date(start);
+        d <= end;
+        d.setUTCDate(d.getUTCDate() + 1)
+      ) {
+        const dateString =
+          d.getUTCFullYear() +
+          "-" +
+          String(d.getUTCMonth() + 1).padStart(2, "0") +
+          "-" +
+          String(d.getUTCDate()).padStart(2, "0");
+
+        marks[dateString] = {
+          selected: true,
+          selectedColor: "#B45A2B",
+          selectedTextColor: "#FFFFFF",
+        };
+      }
+    });
+
+    return marks;
+  }, [bookings]);
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -231,7 +231,7 @@ const markedDates = useMemo(() => {
                   style={styles.picker}
                 >
                   {MONTHS.map((month, index) => (
-                    <Picker.Item key={index} label={month} value={index} />
+                    <Picker.Item key={index} label={month} value={index} color="#000000" />
                   ))}
                 </Picker>
               </View>
@@ -243,8 +243,8 @@ const markedDates = useMemo(() => {
                   onValueChange={(itemValue) => setSelectedYear(itemValue)}
                   style={styles.picker}
                 >
-                  {[2026, 2027, 2028,2029,2030].map((year) => (
-                    <Picker.Item key={year} label={String(year)} value={year} />
+                  {[2026, 2027, 2028, 2029, 2030].map((year) => (
+                    <Picker.Item key={year} label={String(year)} value={year} color="#000000" />
                   ))}
                 </Picker>
               </View>
@@ -268,12 +268,12 @@ const markedDates = useMemo(() => {
       {/* Book Now */}
       <View style={styles.sticky}>
         <TouchableOpacity
-  onPress={() => {
-    navigation.navigate("TripDetails", {
-      vehicleType: "Innova",
-    });
-  }}
->
+          onPress={() => {
+            navigation.navigate("TripDetails", {
+              vehicleType: "Innova",
+            });
+          }}
+        >
           <LinearGradient
             colors={["#6B2F17", "#D15C2D"]}
             style={styles.bookNow}
