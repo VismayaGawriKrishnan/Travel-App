@@ -153,25 +153,26 @@ const markedDates = useMemo(() => {
           </View>
 
           <Calendar
- current={currentDate}
-  markingType={"simple"}
-  markedDates={markedDates}
-  enableSwipeMonths={false}
-  hideExtraDays={true}
-  hideArrows={true}
-  renderHeader={() => null}
-  theme={{
-    backgroundColor: "#F8F1E6",
-    calendarBackground: "#F8F1E6",
-    dayTextColor: "#6B2F17",
-    todayTextColor: "#D15C2D",
-    selectedDayBackgroundColor: "#B45A2B",
-    selectedDayTextColor: "#FFFFFF",
-  }}
-  style={{
-    borderRadius: 24,
-  }}
-/>
+            key={currentDate}
+            current={currentDate}
+            markingType={"simple"}
+            markedDates={markedDates}
+            enableSwipeMonths={false}
+            hideExtraDays={true}
+            hideArrows={true}
+            renderHeader={() => null}
+            theme={{
+              backgroundColor: "#F8F1E6",
+              calendarBackground: "#F8F1E6",
+              dayTextColor: "#6B2F17",
+              todayTextColor: "#D15C2D",
+              selectedDayBackgroundColor: "#B45A2B",
+              selectedDayTextColor: "#FFFFFF",
+            }}
+            style={{
+              borderRadius: 24,
+            }}
+          />
         </View>
 
         <Text style={styles.bookedTitle}>Booked Dates</Text>
