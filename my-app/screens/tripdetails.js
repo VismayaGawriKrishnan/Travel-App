@@ -3,7 +3,7 @@ import { Feather } from "@expo/vector-icons";
 import DateTimePicker, {
     DateTimePickerAndroid,
 } from "@react-native-community/datetimepicker";
-import { Picker } from "@react-native-picker/picker";
+import { Dropdown } from "react-native-element-dropdown";
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
 import { useState } from "react";
@@ -206,20 +206,30 @@ if (error) {
 
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Owner */}
-        <Text style={styles.label}>Owner Name</Text>
+       <Text style={styles.label}>Owner Name</Text>
+
         <View style={styles.inputBox}>
-          <Picker
-            selectedValue={owner}
-            onValueChange={(itemValue) => setOwner(itemValue)}
-            dropdownIconColor="#D15C2D"
-            style={{ color: "#000000"}}
-          >
-            <Picker.Item label="Select Owner" value="" color="#000000" />
-            <Picker.Item label="Owner 1" value="owner1" color="#000000" />
-            <Picker.Item label="Owner 2" value="owner2" color="#000000" />
-            <Picker.Item label="Owner 3" value="owner3" color="#000000" />
-            <Picker.Item label="Owner 4" value="owner4" color="#000000" />
-          </Picker>
+          <Dropdown
+            style={styles.dropdown}
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            data={[
+              { label: "Owner 1", value: "owner1" },
+              { label: "Owner 2", value: "owner2" },
+              { label: "Owner 3", value: "owner3" },
+              { label: "Owner 4", value: "owner4" },
+            ]}
+            maxHeight={200}
+            labelField="label"
+            valueField="value"
+            placeholder="Select Owner"
+            value={owner}
+            onChange={(item) => {
+              setOwner(item.value);
+            }}
+            containerStyle={styles.dropdownContainer}
+            itemTextStyle={styles.itemText}
+          />
         </View>
 
         {/* Customer */}
@@ -407,6 +417,30 @@ if (error) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#FFFFF9" },
 
+  dropdown: {
+  height: 55,
+  paddingHorizontal: 15,
+},
+
+placeholderStyle: {
+  color: "#B99688",
+  fontSize: 16,
+},
+
+selectedTextStyle: {
+  color: "#000000",
+  fontSize: 16,
+},
+
+itemText: {
+  color: "#000000",
+  fontSize: 16,
+},
+
+dropdownContainer: {
+  backgroundColor: "#FBF6E9",
+  borderRadius: 15,
+},
   header: {
     paddingTop: 55,
     paddingBottom: 20,

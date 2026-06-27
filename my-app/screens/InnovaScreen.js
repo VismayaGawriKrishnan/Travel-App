@@ -1,9 +1,8 @@
 import { supabase } from "../lib/supabase";
 import { useFocusEffect } from "@react-navigation/native";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-
+import { Dropdown } from "react-native-element-dropdown";
 import { Feather } from "@expo/vector-icons";
-import { Picker } from "@react-native-picker/picker";
 import { LinearGradient } from "expo-linear-gradient";
 
 import {
@@ -225,28 +224,40 @@ export default function InnovaScreen({ navigation }) {
             <View style={styles.pickerContainer}>
               <View style={styles.pickerColumn}>
                 <Text style={styles.pickerLabel}>Month</Text>
-                <Picker
-                  selectedValue={selectedMonth}
-                  onValueChange={(itemValue) => setSelectedMonth(itemValue)}
+                <Dropdown
                   style={styles.picker}
-                >
-                  {MONTHS.map((month, index) => (
-                    <Picker.Item key={index} label={month} value={index} color="#000000" />
-                  ))}
-                </Picker>
+                  data={MONTHS.map((month, index) => ({
+                  label: month,
+                  value: index,
+                }))}
+                  labelField="label"
+                  valueField="value"
+                  value={selectedMonth}
+                  onChange={(item) => setSelectedMonth(item.value)}
+                  placeholder="Select Month"
+                  selectedTextStyle={styles.selectedText}
+                  itemTextStyle={styles.itemText}
+                  containerStyle={styles.dropdownMenu}
+                />
               </View>
 
               <View style={styles.pickerColumn}>
                 <Text style={styles.pickerLabel}>Year</Text>
-                <Picker
-                  selectedValue={selectedYear}
-                  onValueChange={(itemValue) => setSelectedYear(itemValue)}
+              <Dropdown
                   style={styles.picker}
-                >
-                  {[2026, 2027, 2028, 2029, 2030].map((year) => (
-                    <Picker.Item key={year} label={String(year)} value={year} color="#000000" />
-                  ))}
-                </Picker>
+                  data={[2026, 2027, 2028, 2029, 2030].map((year) => ({
+                    label: String(year),
+                    value: year,
+                  }))}
+                  labelField="label"
+                  valueField="value"
+                  value={selectedYear}
+                  onChange={(item) => setSelectedYear(item.value)}
+                  placeholder="Select Year"
+                  selectedTextStyle={styles.selectedText}
+                  itemTextStyle={styles.itemText}
+                  containerStyle={styles.dropdownMenu}
+                />
               </View>
             </View>
 
@@ -291,6 +302,29 @@ export default function InnovaScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: "#FFF9F3", paddingBottom: 25 },
 
+  picker: {
+  height: 55,
+  width: "100%",
+  backgroundColor: "#FBF6E9",
+  borderRadius: 15,
+  paddingHorizontal: 15,
+},
+
+dropdownMenu: {
+  backgroundColor: "#FBF6E9",
+  borderRadius: 15,
+  elevation: 10,
+},
+
+selectedText: {
+  color: "#000000",
+  fontSize: 16,
+},
+
+itemText: {
+  color: "#000000",
+  fontSize: 16,
+},
   header: {
     flexDirection: "row",
     alignItems: "center",
@@ -403,13 +437,14 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
 
-  modalContent: {
-    backgroundColor: "#FFF9F3",
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    padding: 24,
-    paddingBottom: 40,
-  },
+ modalContent: {
+  backgroundColor: "#FFF9F3",
+  borderTopLeftRadius: 24,
+  borderTopRightRadius: 24,
+  padding: 24,
+  paddingBottom: 40,
+  overflow: "visible",
+},
 
   modalHeader: {
     flexDirection: "row",
@@ -426,9 +461,10 @@ const styles = StyleSheet.create({
 
   pickerContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    marginBottom: 24,
-  },
+   justifyContent: "space-around",
+   gap:5,
+    marginBottom: 100
+},
 
   pickerColumn: {
     flex: 1,
@@ -442,14 +478,10 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
 
-  picker: {
-    height: 200,
-    width: "100%",
-  },
 
   confirmButton: {
     marginTop: 16,
-  },
+},
 
   confirmButtonGradient: {
     borderRadius: 12,

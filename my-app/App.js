@@ -12,6 +12,9 @@ import OwnerHomeScreen from "./screens/OwnerHomeScreen";
 import SeventeenSeaterScreen from "./screens/SeventeenSeaterScreen";
 import SplashScreen from "./screens/SplashScreen";
 import TripDetails from "./screens/tripdetails";
+import * as SystemUI from "expo-system-ui";
+
+SystemUI.setBackgroundColorAsync("#FFFFF9");
 
 const Stack = createNativeStackNavigator();
 
