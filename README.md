@@ -1,50 +1,97 @@
-# Welcome to your Expo app 👋
+# Sreechakra Travel App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A cross-platform travel and vehicle booking mobile application built with Expo and React Native. This app streamlines booking, vehicle selection, and owner management with a clean mobile-first UI.
 
-## Get started
+## Key Features
 
-1. Install dependencies
+- Authentication and secure login flow
+- Booking details collection and trip confirmation
+- Vehicle selection screens for Innova, 11-seater, and 17-seater options
+- Owner home dashboard for managing bookings and trips
+- Supabase integration for backend data storage and authentication
+- Expo-managed workflow for Android, iOS, and web development
 
-   ```bash
-   npm install
-   ```
+## Technology Stack
 
-2. Start the app
+- Expo `~54.0.33`
+- React Native `0.81.5`
+- React `19.1.0`
+- React Navigation
+- Supabase JavaScript client
+- Async Storage
+- React Native Calendars
+- Expo Blur, Linear Gradient, Status Bar, and System UI
+- DateTime picker and native select dropdowns
 
-   ```bash
-   npx expo start
-   ```
+## Repository Structure
 
-In the output, you'll find options to open the app in a
+- `my-app/` — main Expo application folder
+- `my-app/App.js` — app entry point
+- `my-app/index.js` — Expo bootstrap file
+- `my-app/app.json` — Expo configuration
+- `lib/supabase.js` — Supabase client setup
+- `screens/` — application screens and navigation flow
+- `assets/` — shared assets and images
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Prerequisites
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- Node.js installed
+- npm or Yarn installed
+- Expo CLI (`npm install -g expo-cli`) recommended
+- Android Studio or Xcode for native testing
 
-## Get a fresh project
+## Installation
 
-When you're ready, run:
+From the project root, install dependencies:
 
 ```bash
-npm run reset-project
+cd Sreechakra_app/my-app
+npm install
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## Running Locally
 
-## Learn more
+Start the Expo development server:
 
-To learn more about developing your project with Expo, look at the following resources:
+```bash
+npm start
+```
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+From Expo CLI, choose one of:
 
-## Join the community
+- Android emulator or connected device
+- iOS simulator or device
+- Web browser
 
-Join our community of developers creating universal apps.
+Run directly on Android:
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm run android
+```
+
+Run directly on iOS:
+
+```bash
+npm run ios
+```
+
+## Configuration
+
+Update `lib/supabase.js` with your Supabase project URL and public key before using backend features.
+
+## Notes
+
+- This project uses Expo-managed workflow and is optimized for quick iteration.
+- If you add native modules, update the Expo configuration and rebuild the app.
+- Test booking and authentication flows on real devices for the best accuracy.
+
+## Contribution
+
+1. Create a feature branch.
+2. Make your changes.
+3. Test on target platforms.
+4. Open a pull request with a summary of your changes.
+
+## License
+
+Add a `LICENSE` file if you want to define reuse terms for this project.
