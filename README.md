@@ -100,6 +100,3 @@ Update `lib/supabase.js` with your Supabase project URL and public key before us
 3. Test on target platforms.
 4. Open a pull request with a summary of your changes.
 
-## License
-
-Add a `LICENSE` file if you want to define reuse terms for this project.
