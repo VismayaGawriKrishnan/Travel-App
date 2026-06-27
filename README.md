@@ -23,12 +23,12 @@ A cross-platform travel and vehicle booking mobile application built with Expo a
 - Expo Blur, Linear Gradient, Status Bar, and System UI
 - DateTime picker and native select dropdowns
 
-##Contributors
+## Contributors
 
 - Neelakandan Nampoothiri N
 - Vismaya Gawri Krishnan
 - Abhiram J
-- Vyshak P
+- Vysakh P
 
 
 ## Repository Structure
