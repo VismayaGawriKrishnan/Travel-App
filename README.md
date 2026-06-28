@@ -25,9 +25,9 @@ A cross-platform travel and vehicle booking mobile application built with Expo a
 
 ## Collaborators 
 
-- Neelakandan Nampoothiri N - Project leader & Full-Stack Developer
+- Neelakandan Nampoothiri N - Project lead & Full-Stack Developer
 - Vismaya Gawri Krishnan - Frontend Developer & UI/UX Designer
-- Abhiram J - Backend Developer 
+- Abhiram J - Backend Developer & Database Administrator 
 - Vysakh P - Quality Assurance & Testing
 
 
